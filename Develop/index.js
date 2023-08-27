@@ -71,18 +71,23 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile(questions, data) {
-    const filename = `${data.name.toLowerCase().split('').join('')}.json`;
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-    err ? console.log(err) : console.log('Success!')
-    );
- };
+// function writeToFile(questions, data) {
+//     const filename = `${data.name.toLowerCase().split('').join('')}.json`;
+//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+//     err ? console.log(err) : console.log('Success!')
+//     );
+//  };
 
 // TODO: Create a function to initialize app
 function init() { 
 inquirer
     .prompt(questions)
-    .then(writeToFile) 
+    .then((data) => {
+        const filename = `${data.name.toLowerCase().split('').join('')}.json`;
+    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+    err ? console.log(err) : console.log('Success!')
+    );
+    }) 
 };
 // Function call to initialize app
 init();
