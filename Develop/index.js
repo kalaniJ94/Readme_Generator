@@ -18,6 +18,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+import { renderLicenseBadge,
+    renderLicenseLink,
+    renderLicenseSection } from "generateMarkdown2";
 // TODO: Create an array of questions for user input
 
 const questions = [
@@ -69,25 +72,71 @@ const questions = [
     },
 ];
 
+function generateReadme(data) {
+    return `
+  # ${data.project}
+  
+  ## Description
+  ${data.description}
+  
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  
+  ## Installation
+  ${data.installation}
+  
+  ## Usage
+  ${data.usage}
+  
+  ## License
+  ${data.license}
+  
+  This project is protected under the ${licenseName} license (${renderLicenseBadge}.)
 
-// TODO: Create a function to write README file
-// function writeToFile(questions, data) {
-//     const filename = `${data.name.toLowerCase().split('').join('')}.json`;
-//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-//     err ? console.log(err) : console.log('Success!')
-//     );
-//  };
+  ${renderLicenseSection}.
+
+  For more info, visit ${renderLicenseLink}.
+  
+  ## Contributing
+  ${data.contribute}
+  
+  ## Tests
+  ${data.tests}
+  
+  ## Questions
+  For any questions, you can reach me at [GitHub](https://github.com/${data.gitName}) or via email at ${data.email}.
+  `;
+  }
 
 // TODO: Create a function to initialize app
+function licenseInfo(data){
+switch (data.license) {
+    case "MIT":
+        
+        break;
+
+    default:
+        break;
+}
+}
 function init() { 
 inquirer
     .prompt(questions)
     .then((data) => {
-        const filename = `${data.name.toLowerCase().split('').join('')}.json`;
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-    err ? console.log(err) : console.log('Success!')
-    );
-    }) 
-};
+        const readmeContent = generateReadme(data);
+        const filename = 'README.md';
+
+        fs.writeFile(filename, readmeContent, (err) => 
+        err ? console.log(err) : console.log('README created successfully!'))
+    });
+}
+
+
+
 // Function call to initialize app
 init();
