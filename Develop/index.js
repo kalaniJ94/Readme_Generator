@@ -18,9 +18,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-import { renderLicenseBadge,
+const {
+    renderLicenseBadge,
     renderLicenseLink,
-    renderLicenseSection } from "generateMarkdown2";
+    renderLicenseSection,
+} = require('./generateMarkdown2')
 // TODO: Create an array of questions for user input
 
 const questions = [
@@ -73,6 +75,7 @@ const questions = [
 ];
 
 function generateReadme(data) {
+    const { licenseName,renderLicenseBadge, renderLicenseSection, renderLicenseLink } = licenseInfo(data);
     return `
   # ${data.project}
   
@@ -94,13 +97,13 @@ function generateReadme(data) {
   ${data.usage}
   
   ## License
-  ${data.license}
-  
-  This project is protected under the ${licenseName} license (${renderLicenseBadge}.)
+  This project is protected under the ${licenseName}.
 
-  ${renderLicenseSection}.
+ Badge: ${renderLicenseBadge(licenseName)}
+  Section: ${renderLicenseSection(licenseName)}
 
-  For more info, visit ${renderLicenseLink}.
+  For more info, visit ${renderLicenseLink(licenseName)}.
+
   
   ## Contributing
   ${data.contribute}
@@ -115,19 +118,42 @@ function generateReadme(data) {
 
 // TODO: Create a function to initialize app
 function licenseInfo(data){
+    let licenseName = "";
+    // let renderLicenseBadge = "";
+    // let renderLicenseSection = "";
 switch (data.license) {
     case "MIT":
-        
-        break;
-
+        licenseName = "MIT";
+      renderLicenseBadge = renderLicenseBadge(licenseName);
+      renderLicenseSection = renderLicenseSection(licenseName);
+      break;
+      case "Boost Software License":
+        licenseName = "Boost Software License";
+      renderLicenseBadge = renderLicenseBadge(licenseName);
+      renderLicenseSection = renderLicenseSection(licenseName);
+      break;
+      case "Unlicense":
+        licenseName = "Unlicense";
+      renderLicenseBadge = renderLicenseBadge(licenseName);
+      renderLicenseSection = renderLicenseSection(licenseName);
+      break;
+      case "Apache License 2.0":
+        licenseName = "Apache License 2.0";
+      renderLicenseBadge = renderLicenseBadge(licenseName);
+      renderLicenseSection = renderLicenseSection(licenseName);
+      break;
+    
     default:
         break;
 }
+return {licenseName, renderLicenseBadge, renderLicenseLink, renderLicenseSection, };
 }
 function init() { 
 inquirer
     .prompt(questions)
     .then((data) => {
+        const {licenseName, renderLicenseBadge, renderLicenseSection} = licenseInfo(data);
+        data.licenseName = licenseName
         const readmeContent = generateReadme(data);
         const filename = 'README.md';
 

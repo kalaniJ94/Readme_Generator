@@ -1,8 +1,8 @@
 
-  # Kalani's Project
+  # Kalani
   
   ## Description
-  This is an example README
+  Kalani
   
   ## Table of Contents
   - [Installation](#installation)
@@ -13,20 +13,26 @@
   - [Questions](#questions)
   
   ## Installation
-  Istall some stuff
+  Kalani
   
   ## Usage
-  Use it 
+  Kalani
   
   ## License
-  
+  This project is protected under the .
+
+ Badge: 
+  Section: 
+
+  For more info, visit .
+
   
   ## Contributing
-  Please dont
+  Kalani
   
   ## Tests
-  Not needed lol
+  Kalani
   
   ## Questions
-  For any questions, you can reach me at [GitHub](https://github.com/KalaniJ94) or via email at saasasa@gmail.com.
+  For any questions, you can reach me at [GitHub](https://github.com/Kalani) or via email at Kalaani.
   
