@@ -1,8 +1,8 @@
 
-# undefined
+# Kalani's Project
 
 ## Description
-undefined
+Description here
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,10 +13,10 @@ undefined
 - [Questions](#questions)
 
 ## Installation
-undefined
+Install steps here
 
 ## Usage
-undefined
+Examples here
 
 ## License
 This project is protected under the MIT License.
@@ -32,10 +32,10 @@ For more info, visit https://opensource.org/licenses/MIT/.
 Badge : ![License](https://img.shields.io/badge/License-MIT-yellow.svg).
 
 ## Contributing
-undefined
+Steps for contributing here
 
 ## Tests
-undefined
+Tests here
 
 ## Questions
-For any questions, you can reach me at [GitHub](https://github.com/undefined) or via email at undefined.
+For any questions, you can reach me at [GitHub](https://github.com/KalaniJ94) or via email at kalaniJ94@gmail.com.

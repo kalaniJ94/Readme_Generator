@@ -60,3 +60,5 @@ SOFTWARE.
 If you've like to contribute to this project, please reach out! We are incredibly proud of the work, and also of the numerous future opportunities for future features it could hold.
 
 Before you reach out, please be familiar with the Contributor Covenant and the code of conduct within.
+
+Link to GITHUB repo can be found here: https://github.com/kalaniJ94/Readme_Generator
