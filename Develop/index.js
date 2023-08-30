@@ -19,9 +19,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const {
-    renderLicenseBadge,
-    renderLicenseLink,
-    renderLicenseSection,
+    generateReadme,
 } = require('./generateMarkdown2')
 // TODO: Create an array of questions for user input
 
@@ -47,10 +45,10 @@ const questions = [
         message: 'Provide instructions and examples for use.',
     },
     {
-        type: 'checkbox',
-        name: 'license',
-        message: 'Please select a license to apply to your project.',
-        choices: ['None', 'MIT', 'Boost Software License', 'Unlicense', 'Apache License 2.0']
+        type: 'list',
+        name: 'licenseName',
+        message: "Please select a license to apply to your project.",
+        choices: ["None", "MIT", "Boost Software License", "Unlicense", "Apache License 2.0"]
     },
     {
         type: 'input',
@@ -74,86 +72,14 @@ const questions = [
     },
 ];
 
-function generateReadme(data) {
-    const { licenseName,renderLicenseBadge, renderLicenseSection, renderLicenseLink } = licenseInfo(data);
-    return `
-  # ${data.project}
-  
-  ## Description
-  ${data.description}
-  
-  ## Table of Contents
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
-  
-  ## Installation
-  ${data.installation}
-  
-  ## Usage
-  ${data.usage}
-  
-  ## License
-  This project is protected under the ${licenseName}.
 
- Badge: ${renderLicenseBadge(licenseName)}
-  Section: ${renderLicenseSection(licenseName)}
-
-  For more info, visit ${renderLicenseLink(licenseName)}.
-
-  
-  ## Contributing
-  ${data.contribute}
-  
-  ## Tests
-  ${data.tests}
-  
-  ## Questions
-  For any questions, you can reach me at [GitHub](https://github.com/${data.gitName}) or via email at ${data.email}.
-  `;
-  }
-
-// TODO: Create a function to initialize app
-function licenseInfo(data){
-    let licenseName = "";
-    // let renderLicenseBadge = "";
-    // let renderLicenseSection = "";
-switch (data.license) {
-    case "MIT":
-        licenseName = "MIT";
-      renderLicenseBadge = renderLicenseBadge(licenseName);
-      renderLicenseSection = renderLicenseSection(licenseName);
-      break;
-      case "Boost Software License":
-        licenseName = "Boost Software License";
-      renderLicenseBadge = renderLicenseBadge(licenseName);
-      renderLicenseSection = renderLicenseSection(licenseName);
-      break;
-      case "Unlicense":
-        licenseName = "Unlicense";
-      renderLicenseBadge = renderLicenseBadge(licenseName);
-      renderLicenseSection = renderLicenseSection(licenseName);
-      break;
-      case "Apache License 2.0":
-        licenseName = "Apache License 2.0";
-      renderLicenseBadge = renderLicenseBadge(licenseName);
-      renderLicenseSection = renderLicenseSection(licenseName);
-      break;
-    
-    default:
-        break;
-}
-return {licenseName, renderLicenseBadge, renderLicenseLink, renderLicenseSection, };
-}
 function init() { 
 inquirer
     .prompt(questions)
     .then((data) => {
-        const {licenseName, renderLicenseBadge, renderLicenseSection} = licenseInfo(data);
-        data.licenseName = licenseName
+        console.log(data);
+        const selectedLicense = data.licenseName;
+        console.log('Selected License:', selectedLicense);
         const readmeContent = generateReadme(data);
         const filename = 'README.md';
 
