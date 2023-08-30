@@ -48,7 +48,7 @@ const questions = [
         type: 'list',
         name: 'licenseName',
         message: "Please select a license to apply to your project.",
-        choices: ["None", "MIT", "Boost Software License", "Unlicense", "Apache License 2.0"]
+        choices: ["N/A", "MIT License", "Boost Software License", "Unlicense Agreement", "Apache License 2.0"]
     },
     {
         type: 'input',
@@ -72,7 +72,7 @@ const questions = [
     },
 ];
 
-
+//Init uses inquirer and fs to ask the user for input, and takes that input to a newly created markdown file, based on that input. 
 function init() { 
 inquirer
     .prompt(questions)

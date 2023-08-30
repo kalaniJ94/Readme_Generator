@@ -1,8 +1,8 @@
 
-# kalsds
+# undefined
 
 ## Description
-dsd
+undefined
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,13 +13,13 @@ dsd
 - [Questions](#questions)
 
 ## Installation
-sdsd
+undefined
 
 ## Usage
-sds
+undefined
 
 ## License
-This project is protected under the MIT.
+This project is protected under the MIT License.
 
 
 Copyright <YEAR> <COPYRIGHT HOLDER> 
@@ -29,13 +29,13 @@ Copyright <YEAR> <COPYRIGHT HOLDER>
 
 For more info, visit https://opensource.org/licenses/MIT/.
 
-Badge : ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT).
+Badge : ![License](https://img.shields.io/badge/License-MIT-yellow.svg).
 
 ## Contributing
-sdsd
+undefined
 
 ## Tests
-sdsd
+undefined
 
 ## Questions
-For any questions, you can reach me at [GitHub](https://github.com/sds) or via email at sdsd.
+For any questions, you can reach me at [GitHub](https://github.com/undefined) or via email at undefined.
